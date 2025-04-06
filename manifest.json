@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Subscription Refund Calculator",
+  "version": "1.0",
+  "description": "Calculates subscription refunds based on purchase and refund dates",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=16",
+      "48": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=48",
+      "128": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=128"
+    }
+  },
+  "permissions": ["storage", "contextMenus", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=16",
+    "48": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=48",
+    "128": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg?auto=compress&cs=tinysrgb&w=128"
+  }
+}
