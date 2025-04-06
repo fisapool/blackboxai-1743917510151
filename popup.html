@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Subscription Refund Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .error-message {
+      display: none;
+    }
+    .history-item {
+      cursor: pointer;
+    }
+    .history-item:hover {
+      background-color: #f3f4f6;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 p-4 w-80">
+  <div class="space-y-4">
+    <h1 class="text-xl font-bold text-gray-800">Refund Calculator</h1>
+    
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-gray-700">Purchase Date</label>
+      <input type="date" id="purchaseDate" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+    </div>
+
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-gray-700">Refund Date</label>
+      <input type="date" id="refundDate" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+    </div>
+
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-gray-700">Amount (RM)</label>
+      <input type="number" id="amount" min="0" step="0.01" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+    </div>
+
+    <div class="space-y-2">
+      <label class="block text-sm font-medium text-gray-700">Duration</label>
+      <select id="duration" class="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+        <option value="7">1 Week</option>
+        <option value="30">1 Month</option>
+        <option value="90">3 Months</option>
+        <option value="180">6 Months</option>
+      </select>
+    </div>
+
+    <div class="flex space-x-2">
+      <button id="calculate" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition">
+        Calculate
+      </button>
+      <button id="clear" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md transition">
+        Clear
+      </button>
+    </div>
+
+    <div id="error" class="error-message bg-red-100 border-l-4 border-red-500 text-red-700 p-3 rounded">
+      <p id="errorText"></p>
+    </div>
+
+    <div id="result" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-3 rounded">
+      <h3 class="font-bold">Refund Amount:</h3>
+      <p id="resultText" class="text-lg"></p>
+      <div class="mt-2">
+        <div class="w-full bg-gray-200 rounded-full h-2.5">
+          <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full" style="width: 0%"></div>
+        </div>
+        <div class="flex justify-between text-xs text-gray-600 mt-1">
+          <span id="daysUsed">0 days used</span>
+          <span id="daysRemaining">0 days remaining</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t pt-2">
+      <button id="toggleHistory" class="text-blue-600 hover:text-blue-800 text-sm flex items-center">
+        <i class="fas fa-history mr-1"></i> Show History
+      </button>
+      <div id="historyContainer" class="hidden mt-2 space-y-1 max-h-40 overflow-y-auto">
+        <div id="historyItems"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
